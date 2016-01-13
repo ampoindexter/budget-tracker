@@ -27,13 +27,15 @@ function addTrans(e) {
   $tr.children('.debit').text(withdrawal);
   $('#transList').append($tr);
 
-  $('#balance').text(parseFloat($('#balance').text()) + parseFloat($('#transAmount').val()));
+  var $newBalance = parseFloat($('#balance').text()) + parseFloat($('#transAmount').val());
+  $('#balance').text(Math.round($newBalance * 100) / 100);
   $('#transName').val('');
   $('#transDate').val('');
   $('#transAmount').val('');
 }
 
 function deleteTrans() {
-  $('#balance').text(parseFloat($('#balance').text()) - Number($(this).closest('tr').find('.amount').text()));
+  var $newBalance = parseFloat($('#balance').text()) - parseFloat($(this).closest('tr').find('.amount').text());
+  $('#balance').text(Math.round($newBalance * 100) / 100);
   $(this).closest('tr').remove();
 }
