@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Budget Tracker</title>
+  <link rel="stylesheet"href="public/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <br>
+    <div class="jumbotron">
+      <h1>Transaction History</h1>
+      <p>Add transactions and track your account balance!</p>
+      <form id="newTrans">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="input-group">
+              <span class="input-group-addon">Transaction:</span>
+              <input id="transName" type="text" class="form-control" required>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-xs-4">
+            <div class="input-group">
+              <span class="input-group-addon">Transaction Amount: $</span>
+              <input id="transAmount" type="number" class="form-control" min="-1000000000.99" max="1000000000.99" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" required>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="input-group">
+              <span class="input-group-addon">Transaction Date:</span>
+              <input id="transDate" type="date" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-xs-2 vcenter">
+            <button class="btn btn-success">Add Transaction</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="row">
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="col-xs-4">Transaction</th>
+            <th class="col-xs-2">Transaction Date</th>
+            <th class="col-xs-2">Deposits</th>
+            <th class="col-xs-2">Withdrawals</th>
+            <th class="col-xs-2">Delete</th>
+          </tr>
+        </thead>
+        <tbody id="transList">
+          <tr id="sample">
+            <td class="trans"></td>
+            <td class="date"></td>
+            <td class="credit"></td>
+            <td class="debit"></td>
+            <td class="delete">
+              <button class="btn btn-sm btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="public/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="public/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="public/bower_components/moment/moment.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
