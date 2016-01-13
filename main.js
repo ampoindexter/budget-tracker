@@ -5,14 +5,14 @@ $(document).ready(init);
 function init() {
   var currentDate = moment().format('YYYY-MM-DD');
   $('#transDate').attr('min', currentDate);
-
   $('#newTrans').submit(addTrans);
   $('table').on('click', '.delete button', deleteTrans);
+  $('#transHead').click(showAll);
+  $('#credHead').click(showCredits);
 }
 
 function addTrans(e) {
   e.preventDefault();
-
   var transName = $('#transName').val();
   var transDate = $('#transDate').val();
   var formattedDate = moment(transDate).format('ll');
@@ -38,4 +38,14 @@ function deleteTrans() {
   var $newBalance = parseFloat($('#balance').text()) - parseFloat($(this).closest('tr').find('.amount').text());
   $('#balance').text(Math.round($newBalance * 100) / 100);
   $(this).closest('tr').remove();
+}
+
+function showAll() {
+  $('tbody#transList tr').show();
+}
+
+function showCredits() {
+  if ($('tbody#transList tr').find('.credit').text()) {
+    $('tbody#transList tr').show;
+  }
 }
