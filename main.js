@@ -26,8 +26,14 @@ function addTrans(e) {
   $tr.children('.credit').text(deposit);
   $tr.children('.debit').text(withdrawal);
   $('#transList').append($tr);
+
+  $('#balance').text(parseFloat($('#balance').text()) + parseFloat($('#transAmount').val()));
+  $('#transName').val('');
+  $('#transDate').val('');
+  $('#transAmount').val('');
 }
 
 function deleteTrans() {
+  $('#balance').text(parseFloat($('#balance').text()) - Number($(this).closest('tr').find('.amount').text()));
   $(this).closest('tr').remove();
 }

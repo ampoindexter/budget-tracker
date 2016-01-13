@@ -12,6 +12,9 @@
     <div class="jumbotron">
       <h1>Transaction History</h1>
       <p>Add transactions and track your account balance!</p>
+      <h3>Current Balance: $
+        <span id="balance">500.00</span>
+      </h3>
       <form id="newTrans">
         <div class="row">
           <div class="col-xs-12">
@@ -56,8 +59,8 @@
           <tr id="sample">
             <td class="trans"></td>
             <td class="date"></td>
-            <td class="credit"></td>
-            <td class="debit"></td>
+            <td class="credit amount"></td>
+            <td class="debit amount"></td>
             <td class="delete">
               <button class="btn btn-sm btn-danger">
                 <span class="glyphicon glyphicon-trash"></span>
