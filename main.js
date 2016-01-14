@@ -19,6 +19,7 @@ function addTrans(e) {
   var deposit = ($('#transAmount').val() > 0) ? $('#transAmount').val() : null;
   var withdrawal = ($('#transAmount').val() < 0) ? $('#transAmount').val() : null;
 
+  $('#sample').show();
   var $tr = $('#sample').clone();
   $tr.removeAttr('id');
   $tr.children('.trans').text(transName);
@@ -26,6 +27,7 @@ function addTrans(e) {
   $tr.children('.credit').text(deposit);
   $tr.children('.debit').text(withdrawal);
   $('#transList').append($tr);
+  $('#sample').hide();
 
   var $newBalance = parseFloat($('#balance').text()) + parseFloat($('#transAmount').val());
   $('#balance').text(Math.round($newBalance * 100) / 100);
